@@ -14,7 +14,7 @@ public class Db_con
 		try
 		{
 			String db_name="pk";
-			//con=DriverManager.getConnection("jdbc:https://github.com/PraveenPK2428/Mysql.git" + db_name+" ", "root","");
+			
 			con=DriverManager.getConnection("jdbc:mysql://localhost/" + db_name+" ","root","");
 			System.out.println("Success");
 		}
