@@ -1,138 +1,104 @@
-package javaprogram;
-
+package praveen;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
-
-public class Db_con 
+public class Db_Conn 
 {
 	Connection con;
 	PreparedStatement ps;
-	public Db_con()
-	{
-		try
-		{
-			   String db_Name="java";
+    Db_Conn()
+   {
 
-			//Class.forName("com.mysql.jdbc.Driver");
-			//DriverManager.getConnection("jdbc:mysql://localhost:3306/downloader" +
-            //        "user=root & password=root");
-			DriverManager.getConnection("jdbc:mysql://localhost/"+db_Name+"","root","");
+   try
+   {
+	   String db_Name="java";
+	    con = DriverManager.getConnection("jdbc:mysql://localhost/"+db_Name+"","root","");
 
-			System.out.println("Success");
-		}
-		catch(Exception e)
-		   {
-			   System.out.println(e);
-		   }
-	 }
-		   public void insData(String url,String localpath)
-		   {
-			   try
-			   {
-				   ps=con.prepareStatement("insert into values(?,?)");
-				   ps.setString(1,url);
-				   ps.setString(2,localpath);
-				   int i=ps.executeUpdate();
-				   System.out.println(i);
-			   }
-			   catch(Exception e)
-			   {
-				   System.out.println(e);
-			   }
-		   }
+	   System.out.println("Success");
+   }
+   catch(Exception e)
+   {
+	   System.out.println(e);
+   }
+   }
+   public void insData(String name,String phone)
+   {
+	   try
+	   {
 		  
+		   ps=con.prepareStatement("insert into contact values(?,?)");
+		   ps.setString(1,name);
+		   ps.setString(2,phone);
+		   int i=ps.executeUpdate();
+		   System.out.println(i);
+	   }
+	   catch(Exception e)
+	   {
+		   System.out.println(e);
+	   }
+   }
+   public void retData()
+   {
+	   try
+	   {
+		   ps=con.prepareStatement("select * from contact");
+		   ResultSet rs=ps.executeQuery();
 		   
-		   public void status()
+		   while(rs.next())
 		   {
-			   try
-			   {
-				  
-				   
-				   boolean completed = true;
-
-				   if ( completed ) {
-				       System.out.println("download completed");
-				   } else {
-				       System.out.println("download incomplete");
-				   }
-				  
-				   int i=ps.executeUpdate();
-				   System.out.println(i);
-			   }
-			   catch(Exception e)
-			   {
-				   System.out.println(e);
-			   }
+			   System.out.println(rs.getString(1));
+			   System.out.println(rs.getString(2));
 		   }
-			   
-			   public void retData()
-			   {
-				   try
-				   {
-					   ps=con.prepareStatement("select * from downloader");
-					   ResultSet rs=ps.executeQuery();
-					   
-					   while(rs.next())
-					   {
-						   System.out.println(rs.getString(1));
-						   System.out.println(rs.getString(2));
-					   }
-					   
-				   }
-				   catch(Exception e)
-				   {
-					   System.out.println(e);
-				   }
-			   }
-			   public void updData()
-			   {
-				   try
-				   {
-					   ps=con.prepareStatement("update contact set url=? where localpath=?");
-					  // ps.setString(1,"Vijay");
-					  // ps.setString(2,"12345");
-					   //ps.setString(2,b);
-					   int i=ps.executeUpdate();
-					   System.out.println(i);
-				   }
-				   catch(Exception e)
-				   {
-					   System.out.println(e);
-				   }
-			   }
-			   public void delData()
-			   {
-				   try
-				   {
-					   ps=con.prepareStatement("delete from contact where url=?");
-					   //ps.setString(1,"vijay");
-					   
-					   //ps.setString(2,b);
-					   int i=ps.executeUpdate();
-					   System.out.println(i);
-				   }
-				   catch(Exception e)
-				   {
-					   System.out.println(e);
-				   }
-			   }
-
+		   
+	   }
+	   catch(Exception e)
+	   {
+		   System.out.println(e);
+	   }
+   }
+   public void updData()
+   {
+	   try
+	   {
+		   ps=con.prepareStatement("update contact set fname=? where phone=?");
+		   ps.setString(1,"Vijay");
+		   ps.setString(2,"12345");
+		   //ps.setString(2,b);
+		   int i=ps.executeUpdate();
+		   System.out.println(i);
+	   }
+	   catch(Exception e)
+	   {
+		   System.out.println(e);
+	   }
+   }
+   public void delData()
+   {
+	   try
+	   {
+		   ps=con.prepareStatement("delete from contact where fname=?");
+		   ps.setString(1,"vijay");
+		   
+		   //ps.setString(2,b);
+		   int i=ps.executeUpdate();
+		   System.out.println(i);
+	   }
+	   catch(Exception e)
+	   {
+		   System.out.println(e);
+	   }
+   }
 
 	public static void main(String[] args) 
 	{
-		
-		Db_con dd=new Db_con ();
-		//dd.insData("PK","55555");
-		
+	
+		Db_Conn dd=new Db_Conn();
+		dd.insData("PK","55555");
 		//dd.retData();
 		//dd.updData();
 		//dd.delData();
-		 //dd.status();
-
 	}
 
 }
