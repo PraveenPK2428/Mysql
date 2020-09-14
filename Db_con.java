@@ -1,33 +1,41 @@
 package javaprogram;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+
 
 public class Db_con 
 {
 	Connection con;
 	PreparedStatement ps;
-	Db_con()
+	public Db_con()
 	{
 		try
 		{
-			Class.forName("com.mysql.jdbc.Driver");
-			String db_name="java";
-						
-			con=DriverManager.getConnection("jdbc:mysql://localhost/"+db_name+" ","root","");
+			   String db_Name="java";
+
+			//Class.forName("com.mysql.jdbc.Driver");
+			//DriverManager.getConnection("jdbc:mysql://localhost:3306/downloader" +
+            //        "user=root & password=root");
+			DriverManager.getConnection("jdbc:mysql://localhost/"+db_Name+"","root","");
+
 			System.out.println("Success");
 		}
 		catch(Exception e)
 		   {
 			   System.out.println(e);
 		   }
-		   }
-		   public void insData(String name,String phone)
+	 }
+		   public void insData(String url,String localpath)
 		   {
 			   try
 			   {
-				  
-				   ps=con.prepareStatement("insert into contact values(?,?)");
-				   ps.setString(1,name);
-				   ps.setString(2,phone);
+				   ps=con.prepareStatement("insert into values(?,?)");
+				   ps.setString(1,url);
+				   ps.setString(2,localpath);
 				   int i=ps.executeUpdate();
 				   System.out.println(i);
 			   }
@@ -36,11 +44,36 @@ public class Db_con
 				   System.out.println(e);
 			   }
 		   }
+		  
+		   
+		   public void status()
+		   {
+			   try
+			   {
+				  
+				   
+				   boolean completed = true;
+
+				   if ( completed ) {
+				       System.out.println("download completed");
+				   } else {
+				       System.out.println("download incomplete");
+				   }
+				  
+				   int i=ps.executeUpdate();
+				   System.out.println(i);
+			   }
+			   catch(Exception e)
+			   {
+				   System.out.println(e);
+			   }
+		   }
+			   
 			   public void retData()
 			   {
 				   try
 				   {
-					   ps=con.prepareStatement("select * from contact");
+					   ps=con.prepareStatement("select * from downloader");
 					   ResultSet rs=ps.executeQuery();
 					   
 					   while(rs.next())
@@ -59,9 +92,9 @@ public class Db_con
 			   {
 				   try
 				   {
-					   ps=con.prepareStatement("update contact set fname=? where phone=?");
-					   ps.setString(1,"Vijay");
-					   ps.setString(2,"12345");
+					   ps=con.prepareStatement("update contact set url=? where localpath=?");
+					  // ps.setString(1,"Vijay");
+					  // ps.setString(2,"12345");
 					   //ps.setString(2,b);
 					   int i=ps.executeUpdate();
 					   System.out.println(i);
@@ -75,10 +108,10 @@ public class Db_con
 			   {
 				   try
 				   {
-					   ps=con.prepareStatement("delete from contact  where fname=?");
-					   ps.setString(1,"vijay");
+					   ps=con.prepareStatement("delete from contact where url=?");
+					   //ps.setString(1,"vijay");
 					   
-					   //ps.setString(2,b) ; dffds
+					   //ps.setString(2,b);
 					   int i=ps.executeUpdate();
 					   System.out.println(i);
 				   }
@@ -91,12 +124,14 @@ public class Db_con
 
 	public static void main(String[] args) 
 	{
-		Db_con dd=new Db_con();
-		dd.insData("PK","55555");
+		
+		Db_con dd=new Db_con ();
+		//dd.insData("PK","55555");
 		
 		//dd.retData();
 		//dd.updData();
 		//dd.delData();
+		 //dd.status();
 
 	}
 
