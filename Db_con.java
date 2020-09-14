@@ -75,10 +75,10 @@ public class Db_con
 			   {
 				   try
 				   {
-					   ps=con.prepareStatement("delete from contact where fname=?");
+					   ps=con.prepareStatement("delete from contact  where fname=?");
 					   ps.setString(1,"vijay");
 					   
-					   //ps.setString(2,b);
+					   //ps.setString(2,b) ; dffds
 					   int i=ps.executeUpdate();
 					   System.out.println(i);
 				   }
