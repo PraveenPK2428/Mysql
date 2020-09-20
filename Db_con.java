@@ -4,46 +4,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Scanner;
 
 public class Down
 {
-	 
-	  
-	/* public void insdata() 
-	 {
-		 try
-		 {
-	 
-		 
-		 Scanner sc=new Scanner(System.in);
-		 ps=conn.prepareStatement("select * from test set id =? ,url=?, localpath=? where status=?");
-			System.out.println("Enter the url");
-			String url=sc.next();
-			
-			 System.out.println("Enter the localpath");
-			 String localpath = sc.next();
-			 			
-			 System.out.println("Enter the status");
-			 String status = sc.next();
-			 
-			 ps.executeUpdate("insert into test values ('"+url+"','"+localpath+"','"+status+"')");
-			 System.out.println("Data inserted successfully");
-		 }
-		 catch(Exception e)
-		   {
-			   System.out.println(e);
-			   
-		   }
-	 }
-*/
-	 
-	
+	 Connection conn;
+
 		public static void main(String[] args) 
 	{
 			
 			
-		
 		String dbname = "java";
 		String url1 = "jdbc:mysql://localhost/java";
 		String user = "root";
@@ -63,23 +32,14 @@ public class Down
 			
 			// 3. Execute SQL query
 			// Adding insert data from the input user
-			Scanner sc=new Scanner(System.in);
-			
 			Statement st = conn.createStatement();
-			System.out.println("Enter the id");
-			int Id=sc.nextInt();
+			insert_data b=new insert_data();
+			String a=b.data();
 			
-			System.out.println("Enter the url");
-			String url=sc.next();
-			
-			 System.out.println("Enter the localpath");
-			 String localpath = sc.next();
-			 			
-			 System.out.println("Enter the status");
-			 String status = sc.next();
-			 String s = "insert into test values('"+Id+"','"+url+"','"+localpath+"','"+status+"')";
-			 st.executeUpdate(s);
+			st.executeUpdate(a);
 			 System.out.println("Data inserted successfully");
+			
+			
 			
 		/*	//--------Update data in the database-----------------
 			String updatequery = "update test set url = 'www.fb.com'" + "where id = 2";
@@ -113,9 +73,7 @@ public class Down
 		{
             System.out.println(e);
         }	
-		//Down dd=new Down();
-		//dd.insdata();
-		//System.out.println("Insert data successfully");
+		
 	}
 }
     
