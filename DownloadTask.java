@@ -1,5 +1,4 @@
-package k;
- import java.io.File;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,11 +6,7 @@ import java.io.InputStream;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
  
-/**
- * Execute file download in a background thread and update the progress.
- * 
- *
- */
+
 public class DownloadTask extends SwingWorker<Void, Void> 
 {
     private static final int BUFFER_SIZE = 4096;   
@@ -25,9 +20,7 @@ public class DownloadTask extends SwingWorker<Void, Void>
         this.saveDirectory = saveDirectory;
     }
      
-    /**
-     * Executed in background thread
-     */
+   
     @Override
     protected Void doInBackground() throws Exception {
         try {
@@ -71,9 +64,7 @@ public class DownloadTask extends SwingWorker<Void, Void>
         return null;
     }
  
-    /**
-     * Executed in Swing's event dispatching thread
-     */
+   
     @Override
     protected void done() 
     {
