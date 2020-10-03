@@ -1,5 +1,3 @@
-package k;
- 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -21,11 +19,7 @@ import javax.swing.UIManager;
  
 import net.codejava.swing.JFilePicker;
  
-/**
- * A Swing application that downloads file from an HTTP server.
- * 
- *
- */
+
 public class SwingFileDownloadHTTP extends JFrame implements
         PropertyChangeListener 
         {
@@ -127,9 +121,7 @@ public class SwingFileDownloadHTTP extends JFrame implements
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
     }
  
-    /**
-     * handle click event of the Upload button
-     */
+    
     private void buttonDownloadActionPerformed(ActionEvent event) 
     {
         String downloadURL = fieldURL.getText();
@@ -171,9 +163,7 @@ public class SwingFileDownloadHTTP extends JFrame implements
         fieldFileSize.setText(String.valueOf(size));
     }
      
-    /**
-     * Update the progress bar's state whenever the progress of download changes.
-     */
+  
     @Override
     public void propertyChange(PropertyChangeEvent evt) 
     {
@@ -184,9 +174,7 @@ public class SwingFileDownloadHTTP extends JFrame implements
         }
     }
      
-    /**
-     * Launch the application
-     */
+    
     public static void main(String[] args) 
     {
         try {
