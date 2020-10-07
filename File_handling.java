@@ -1,70 +1,128 @@
-package k;
-
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class File_handling 
-{
 
-	public static void main(String[] args) throws FileNotFoundException
+
+public class Downld_Vw 
+{
+	 Connection conn;
+	 
+      ArrayList<String> ar=new ArrayList<String>();	         
+	 
+
+		public static void main(String[] args) 
 	{
-		String fna[]=new String[10];
-		String fp[]=new String[10];
-		int i=0;
-		File fi=new File("E://");
+			Downld_Vw dd=new Downld_Vw();
+			
+		String dbname = "java";
+		String url1 = "jdbc:mysql://localhost/java";
+		String user = "root";
+		String password = "";
 		
+		System.out.println("connected successfully");
 		try
 		{
-			
-			for(File ls:fi.listFiles())
+			// 1. Get a connection to database
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection(url1, user, password);
+		
 				
-			{
-				if(ls.getName().endsWith(".txt"))
-				{
-					fna[i]=ls.getName();
-					fp[i]=ls.getPath();
-					i++;
+			// 2. Create a statement
+			Statement mystmt = conn.createStatement();
+			String strsql = "SELECT * FROM Test";
+			
+			
+			// 3. Execute SQL query
+			// Adding insert data from the input user
+			
+			Statement st = conn.createStatement();
+			 System.out.println("Id"+" "+"File_name"+"     "+"url"+" "+"     "+"Localpath"+"  "+"  "+" Status"+" ");
+
+		
+			//---------EXECUTE DATA--------------------
+            ResultSet res = mystmt.executeQuery(strsql);
+            
+          
+
+           while(res.next())
+            {
+        	   dd.ar.add(res.getString(1));
+        	   dd.ar.add(res.getString(2));
+        	   dd.ar.add(res.getString(3));
+        	   dd.ar.add(res.getString(4));
+        	   dd.ar.add(res.getString(5));
+        	  
+            }
+           
+           res.close();
+		
+		//	conn.close(); 
 					
-				}
-			}
 		}
 		catch(Exception e)
 		{
-			System.out.println(e);
-		}
-		for(int x=0;x<fna.length;x++)
-		{
-			System.out.println(fna[x]);
-		}
-		Scanner sc=new Scanner(System.in);
-		System.out.println("\n Enter the file name");
+            System.out.println(e);
+        }	
 		
-		String fn=sc.next();
+		System.out.println("---------------------------------------------");
 		
-		for(int x=0;x<fna.length;x++)
+		int i=0;
+		
+		for(String ab:dd.ar)
 		{
-			if(fn.equals(fna[x]))
 			
-		{
-				fi=new File(fp[x]);
-						sc=new Scanner(fi);
-				
-			while(sc.hasNext())
+			System.out.print(ab+"    ");
+		
+			i++;
+			if(i==5)
 			{
-				System.out.println(sc.nextLine());
-			}
-			
-	
+				System.out.println();
+				i=0;
+			}	
 		}
 		
+		System.out.println("Enter Any One ID Num To View File");
+		Scanner sc=new Scanner(System.in);
+		
+		int id=sc.nextInt();
+		
+		
+		int indx=dd.ar.indexOf(Integer.toString(id));
+		System.out.println(dd.ar.get(indx+1));
+		System.out.println(dd.ar.get(indx+2));
+		System.out.println(dd.ar.get(indx+3));
+		System.out.println(dd.ar.get(indx+4));
+		
+		Scanner a1=new Scanner(System.in);
+		System.out.println("Enter the file name");
+		String b=a1.next();
+		
+		File fi = new File("E://"+b);
+	
+		try 
+		
+		{
+			FileInputStream fis = new FileInputStream(fi);
+ 			int content;
+			while ((content = fis.read())!= -1) 
+			{
+				
+				System.out.print((char) content);
+			} 
+		} catch (Exception e) {
+			System.out.println(e);
 		}
 	}
 }
-				
-		
-		
 
 
 
+    
 
+	
