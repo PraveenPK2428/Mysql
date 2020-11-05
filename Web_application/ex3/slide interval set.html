@@ -1,0 +1,28 @@
+<html>
+<head>
+<script>
+var imgs=['2.jpg','3.jpg','4.jpg']
+var x=0;
+
+function slide()
+{
+if(x<imgs.length)
+{
+var a=document.getElementById('img1');
+a.src=imgs[x];
+x++;
+}
+
+}
+function next()
+{
+setInterval(slide,1000);
+
+}
+</script>
+</head>
+<body>
+<img src="1.jpg" id="img1" width="50%" height="50%"> <br> <br>
+<input type="Button" value="Click" onclick="next()">
+</body>
+</html>

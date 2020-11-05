@@ -1,0 +1,57 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+* {
+  box-sizing: border-radius;
+  background-color: 00ACEE;
+
+}
+
+
+
+/* style inputs and link buttons */
+input{
+  width: 50%;
+  padding: 12px;
+  border: none;
+  border-radius: 50px;
+  background-color:#F5F5F5;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; 
+margin: 20px 0 0 100px;
+/* remove underline from anchors */
+}
+
+input:hover,.btn:hover {
+  opacity: 1;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #0084B4;
+  color: white;
+  padding: 14px 20px;
+  margin: 20px 0 0 100px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  width: 50%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+center{
+margin-top:100px;
+}
+
+img {
+  display: block;
+  margin-left: 600px;
+  margin-right: auto;
+}
+
+

@@ -1,0 +1,192 @@
+<html>
+<head>
+<script>
+
+function calculate()
+{
+var Tamil=document.getElementById('tamil').value;
+var English=document.getElementById('english').value;
+var Maths=document.getElementById('maths').value;
+var Science=document.getElementById('science').value;
+var Social_Science=document.getElementById('social_science').value;
+
+var Total=parseInt(Tamil)+parseInt(English)+parseInt(Maths)+parseInt(Science)+parseInt(Social_Science);
+var tot=document.getElementById('total');
+tot.value=Total;
+
+var Average=(parseInt(Tamil)+parseInt(English)+parseInt(Maths)+parseInt(Science)+parseInt(Social_Science))/5;
+var ave=document.getElementById('avg');
+ave.value=Average;
+
+if(Tamil>=35 && English>=35 && Maths>=35 && Science>=35 && Social_Science>=35)
+{
+var res="Pass";
+var Result=document.getElementById('result');
+Result.value=res;
+}
+else
+{
+var res="Fail";
+var Result=document.getElementById('result');
+Result.value=res;
+}
+}
+
+function ins_data()
+{
+/*var Name=document.getElementById('t1').value;
+var Reg_no=document.getElementById('r1').value;
+var Tamil=document.getElementById('tamil').value;
+var English=document.getElementById('english').value;
+var Maths=document.getElementById('maths').value;
+var Science=document.getElementById('science').value;
+var Social_Science=document.getElementById('social_science').value;
+var Total=document.getElementById('total').value;
+var Average=document.getElementById('avg').value;
+var Result=document.getElementById('result').value;
+
+ var tb=document.getElementById('tab');
+ var rw=tb.insertRow(1);
+ 
+ var c1=rw.insertCell(0);
+ var c2=rw.insertCell(1);
+ var c3=rw.insertCell(2);
+ var c4=rw.insertCell(3);
+ var c5=rw.insertCell(4);
+ var c6=rw.insertCell(5);
+ var c7=rw.insertCell(6);
+ var c8=rw.insertCell(7);
+ var c9=rw.insertCell(8);
+ var c10=rw.insertCell(9);
+ 
+ c1.innerHTML=Name;
+ c2.innerHTML=Reg_no;
+ c3.innerHTML=Tamil;
+ c4.innerHTML=English;
+ c5.innerHTML=Maths;
+ c6.innerHTML=Science;
+ c7.innerHTML=Social_Science;
+ c8.innerHTML=Total;
+ c9.innerHTML=Average;
+ c10.innerHTML=Result;
+
+}*/
+
+ var tb=document.getElementById('tab');
+ var rw=tb.insertRow(1);
+ 
+var arr=new Array();
+arr[0]=document.getElementById('t1').value;
+arr[1]=document.getElementById('r1').value;
+arr[2]=document.getElementById('tamil').value;
+arr[3]=document.getElementById('english').value;
+arr[4]=document.getElementById('maths').value;
+arr[5]=document.getElementById('science').value;
+arr[6]=document.getElementById('social_science').value;
+arr[7]=document.getElementById('total').value;
+arr[8]=document.getElementById('avg').value;
+arr[9]=document.getElementById('result').value;
+
+ for(var i=0;i<10;i++)
+ {
+ var c=rw.insertCell(i);  //insert- Captial 'C' Cell: insertCell(i)
+ c.innerHTML=arr[i];
+ 
+ }
+ }
+ function clr()
+ {
+document.getElementById("t1").value = "";
+document.getElementById('r1').value = "";
+document.getElementById('tamil').value = "";
+document.getElementById('english').value = "";
+document.getElementById('maths').value = "";
+document.getElementById('science').value = "";
+document.getElementById('social_science').value = "";
+document.getElementById('total').value = "";
+document.getElementById('avg').value = "";
+document.getElementById('result').value = "";
+ }
+</script>
+</head>
+<body>
+<table>
+
+<tr>
+<td>Name:</td>
+<td><input type="text" id="t1" placeholder="Enter name"></td>
+</tr>
+
+<tr>
+<td>Reg No:</td>
+<td><input type="text" id="r1" ></td>
+</tr>
+
+<tr>
+<td>Tamil:</td>
+<td><input type="text" id="tamil" ></td>
+</tr>
+
+
+<tr>
+<td>English:</td>
+<td><input type="text" id="english" ></td>
+</tr>
+
+<tr>
+<td>Maths:</td>
+<td><input type="text" id="maths" ></td>
+</tr>
+
+<tr>
+<td>Science:</td>
+<td><input type="text" id="science" ></td>
+</tr>
+
+<tr>
+<td>Social Science:</td>
+<td><input type="text" id="social_science" ></td>
+</tr>
+
+<tr>
+<td>Total:</td>
+<td><input type="text" id="total" disabled ></td>
+</tr>
+
+<tr>
+<td>Average:</td>
+<td><input type="text" id="avg" disabled></td>
+</tr>
+
+<tr>
+<td>Result:</td>
+<td><input type="text" id="result" disabled></td>
+</tr>
+
+<tr>
+
+<td><input type="Button" value="Calculate" onclick="calculate()"></td>
+<td><input type="Button" value="Insert" onclick="ins_data()" ></td>
+<td><input type="Button" value="clear" onclick="clr()" ></td>
+</tr>
+</table>
+<br>
+<br>
+
+ <table border='1px' id="tab">
+ <tr>
+ <td>Name</td>
+ <td>Reg No</td>
+ <td>Tamil</td>
+ <td>English</td>
+ <td>Maths</td>
+ <td>Science</td>
+ <td>Social Science</td>
+ <td>Total</td>
+ <td>Average</td>
+ <td>Result</td>
+ 
+ </table>
+
+</body>
+</html>

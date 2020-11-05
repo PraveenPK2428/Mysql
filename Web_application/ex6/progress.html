@@ -1,0 +1,41 @@
+<html>
+<head>
+<script>
+
+var x=0;
+
+function press()
+{
+var prg=document.getElementById("prg");
+var p=document.getElementById("p");
+x+=10;
+prg.value=x;
+p.innerHTML=x;
+}
+
+function press1()
+{
+var prg=document.getElementById("prg");
+var p=document.getElementById("p");
+
+x-=10;
+prg.value=x;
+p.innerHTML=x;
+
+}
+
+</script>
+</head>
+<body>
+<center>
+<progress id="prg" value="0" max="100" style="width:60%; height:25%"></progress>
+<p id="p" align="center" style="font-size:75px">0</p>
+
+<table>
+<tr>
+<td><input type="button" value="Increment" onclick="press()"></td>
+<td><input type="button" value="Decrement" onclick="press1()"></td>
+</center>
+
+</body>
+</html>

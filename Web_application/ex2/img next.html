@@ -1,0 +1,52 @@
+<html>
+<head>
+<script>
+
+var imgs=['1.jpg','2.jpg','3.jpg','4.jpg']
+var x=0;
+
+
+function next()
+{
+x++;
+if(x>=4)
+{
+x=0;
+
+var a=document.getElementById('img1');
+a.src=imgs[x];
+
+}
+else
+{
+var a=document.getElementById('img1');
+a.src=imgs[x];
+
+}
+}
+
+function prev()
+{
+x--;
+
+if(x<0)
+{
+x=3;
+var a=document.getElementById('img1');
+a.src=imgs[x];
+}
+else
+{
+var a=document.getElementById('img1');
+a.src=imgs[x];
+}
+}	
+</script>
+
+</head>
+<body>
+<img src="1.jpg" id="img1" width="50%" height="50%">  <br> <br>
+<input type="Button" value="Next" onclick="next()">
+<input type="Button" value="previous" onclick="prev()">
+</body>
+</html>

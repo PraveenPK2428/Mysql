@@ -1,0 +1,88 @@
+<html>
+<head></head>
+<title>student details</title>
+
+<body>
+
+<script>
+
+var num=parseInt(prompt("Enter the number of students"));
+
+var arr=new Array();
+var inc=0;
+for(var i=1;i<=num;i++)
+{
+
+arr[inc++]=prompt("Enter the Student Name");
+arr[inc++]=parseInt(prompt("Enter the Tamil"));
+arr[inc++]=parseInt(prompt("Enter the English"));
+arr[inc++]=parseInt(prompt("Enter the Maths"));
+arr[inc++]=parseInt(prompt("Enter the Science"));
+arr[inc++]=parseInt(prompt("Enter the Social"));
+arr[inc++]=arr[inc-2]+arr[inc-3]+arr[inc-4]+arr[inc-5]+arr[inc-6];
+
+arr[inc++]=arr[inc-2]/5;
+
+
+
+if(arr[inc-3]<35 || arr[inc-4]<35 || arr[inc-5]<35 || arr[inc-6]<35 || arr[inc-7]<35)
+{
+arr[inc++]="Fail";
+}
+else
+{
+arr[inc++]="Pass";
+}
+
+}
+</script>
+
+<table border='2px'>
+
+	<tr>
+	<td>Name</td>
+	<td>Tamil</td>
+	<td>English</td>
+	<td>Maths</td>
+	<td>Science</td>
+	<td>Social</td>
+	<td>Total</td>
+	<td>Average</td>
+	<td>Result</td>
+	</tr>
+	
+	
+	<script>
+	
+	var x=0;
+	document.write("<tr>");
+	
+	for(i=1;i<=arr.length;i++)
+	{
+	
+	if(i%9==0)
+	{
+	document.write("<td>",arr[x++],"</td>");
+	document.write("</tr>");
+	document.write("<tr>");
+	
+	}
+	else
+	{
+	document.write("<td>",arr[x++],"</td>");
+	}
+	
+	
+	
+	}
+	</script>
+	
+	
+	</table>
+	
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<script>
+function press(val)
+{
+document.getElementById("t1").value+=val
+ }
+
+function solve()
+{
+let x = document.getElementById("t1").value
+let y = eval(x)
+var i=document.getElementById("t1");
+i.value=y;
+}
+
+function clr()
+{
+document.getElementById("t1").value = ""
+}
+
+</script>
+</head>
+
+
+<body>
+<div class="dv">
+<table>
+<tr>
+<td><input type="text" id="t1"  class="display" disabled placeholder="0"></td><br>
+
+</tr>
+<tr>
+<td><td><input type="button" class="button" id="clr" value="C" onclick="clr()"></td>
+</tr>
+</table>
+<table>
+<tr>
+<td><input type="button" class="button" value="7" id="seven" onclick="press('7')"></td>
+<td><input type="button" class="button" value="8" id="eight" onclick="press('8')"></td>
+<td><input type="button" class="button" value="9" id="nine" onclick="press('9')"></td>
+<td><input type="button" class="button" value="+" id="add" onclick="press('+')""></td>
+
+</tr>
+
+<tr>
+<td><input type="button" class="button" value="4" id="four" onclick="press('4')"></td>
+<td><input type="button" class="button" value="5" id="five" onclick="press('5')"></td>
+<td><input type="button" class="button" value="6" id="six" onclick="press('6')"></td>
+<td><input type="button" class="button" value="-" id="sub" onclick="press('-')"></td>
+</tr>
+
+<tr>
+<td><input type="button" class="button" value="1" id="1" onclick="press('1')"></td>
+<td><input type="button" class="button" value="2" id="2" onclick="press('2')"></td>
+<td><input type="button" class="button" value="3" id="3" onclick="press('3')"></td>
+<td><input type="button" class="button" value="*" id="mult" onclick="press('*')"></td>
+</tr>
+
+<tr>
+<td><input type="button" class="button" value="." id="dot" onclick="press('.')"></td>
+<td><input type="button" class="button" value="0" id="0" onclick="press('0')"></td>
+<td><input type="button" class="button" value="/" id="div" onclick="press('/')"></td>
+<td><input type="button" class="button" value="=" onclick="solve()"> </td>
+
+</tr>
+
+</table>
+</div>
+
+</body>
+
+</html>

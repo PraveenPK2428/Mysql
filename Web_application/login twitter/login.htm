@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<style>
+	body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+* {
+  box-sizing: border-radius;
+  background-color: 00ACEE;
+
+}
+
+
+
+/* style inputs and link buttons */
+input{
+  width: 50%;
+  padding: 12px;
+  border: none;
+  border-radius: 50px;
+  background-color:#F5F5F5;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; 
+margin: 20px 0 0 100px;
+/* remove underline from anchors */
+}
+
+input:hover,.btn:hover {
+  opacity: 1;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #0084B4;
+  color: white;
+  padding: 14px 20px;
+  margin: 20px 0 0 100px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  width: 50%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+center{
+margin-top:100px;
+}
+
+img {
+  display: block;
+  margin-left: 600px;
+  margin-right: auto;
+}
+
+
+</style>
+
+	
+</head>
+ <body>
+	
+	<center>
+		<img src="twitter-logo-png-images-free-download-twitter-logo-png-1259_1024.png" heigh="20%" width="20%">
+		<h1 style="text-align:center">Login to Twitter</h1>
+
+
+
+			
+				
+				
+				
+					<input type="text" id="username" placeholder="Username,email"><br>
+					<input type="password" id="password" placeholder="Password"><br>
+					<button onclick="clicked()" <a href="twitter/page.html" target="_blank">Login</a></button><br><br>
+									
+					<a href="#">Forgot password?</a>
+				
+				
+	 
+			 
+			
+
+
+	</center>
+
+		<script>	
+function clicked()
+{
+	var name=document.getelementById('username');
+	var pswd=document.getelementById('password');
+	
+	var name="pk";
+	var pswd="123";
+
+	{
+		if(user.value== name);
+			{
+				if(password.value == pswd);
+				{
+					window.alert("login successfully");
+					location.open("twitter page/page/html");
+					
+				}
+					else
+						{
+							window.alert("incorrect password");
+						}
+			}
+							else
+								{
+									window.alert("Incorrect password");
+								}
+			
+	}
+
+ // location.replace("https://www.w3schools.com")
+
+}
+
+</script>
+
+ </body>
+</html>
