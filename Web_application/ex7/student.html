@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<style>
+mov
+{
+width:25%;
+height:25%;
+}
+</style>
+<title>Insert title here</title>
+
+
+<script>
+function calculate()
+{
+var Tamil=document.getElementById('tamil').value;
+var English=document.getElementById('english').value;
+var Maths=document.getElementById('maths').value;
+var Science=document.getElementById('science').value;
+var Social_Science=document.getElementById('social_science').value;
+
+var Total=parseInt(Tamil)+parseInt(English)+parseInt(Maths)+parseInt(Science)+parseInt(Social_Science);
+var tot=document.getElementById('total');
+tot.value=Total;
+
+var Average=(parseInt(Tamil)+parseInt(English)+parseInt(Maths)+parseInt(Science)+parseInt(Social_Science))/5;
+var ave=document.getElementById('avg');
+ave.value=Average;
+
+if(Tamil>=35 && English>=35 && Maths>=35 && Science>=35 && Social_Science>=35)
+{
+var res="Pass";
+var Result=document.getElementById('result');
+Result.value=res;
+}
+else
+{
+var res="Fail";
+var Result=document.getElementById('result');
+Result.value=res;
+}
+}
+function ins_data()
+{
+	var tb=document.getElementById('tab');
+ var rw=tb.insertRow(1);
+ 
+var arr=new Array();
+arr[0]=document.getElementById('t1').value;
+arr[1]=document.getElementById('r1').value;
+arr[2]=document.getElementById('tamil').value;
+arr[3]=document.getElementById('english').value;
+arr[4]=document.getElementById('maths').value;
+arr[5]=document.getElementById('science').value;
+arr[6]=document.getElementById('social_science').value;
+arr[7]=document.getElementById('total').value;
+arr[8]=document.getElementById('avg').value;
+arr[9]=document.getElementById('result').value;
+
+ for(var i=0;i<10;i++)
+ {
+ var c=rw.insertCell(i);  //insert- Captial 'C' Cell: insertCell(i)
+ c.innerHTML=arr[i];
+ 
+ }
+ }
+ function clr()
+ {
+document.getElementById("t1").value = "";
+document.getElementById('r1').value = "";
+document.getElementById('tamil').value = "";
+document.getElementById('english').value = "";
+document.getElementById('maths').value = "";
+document.getElementById('science').value = "";
+document.getElementById('social_science').value = "";
+document.getElementById('total').value = "";
+document.getElementById('avg').value = "";
+document.getElementById('result').value = "";
+ }
+function pass()
+{
+	var inc=0;
+	
+	var tb2=document.getElementById("tab");
+	
+	var rs=tb2.rows.length;
+	//var cs=tb2.rows[x].cells.length;
+
+	
+	for(var x=1;x<rs;x++)
+		{
+		var res=tb2.rows[x].cells.item(9).innerHTML;
+		if(res=="Pass")
+			{
+			inc++;
+			}
+		
+		}
+	var per=(inc/(rs-1))*100;
+	
+	var pg=document.getElementById("prg");
+	pg.value=per;
+	
+	var p1=document.getElementById("p");
+	p1.innerHTML=per;
+}
+
+function fail()
+{
+	var inc=0;
+	
+	var tb2=document.getElementById("tab");
+	
+	var rs=tb2.rows.length;
+	//var cs=tb2.rows[x].cells.length;
+
+	
+	for(var x=1;x<rs;x++)
+		{
+		var res=tb2.rows[x].cells.item(9).innerHTML;
+		if(res=="Fail")
+			{
+			inc++;
+			}
+		
+		}
+	var per=(inc/(rs-1))*100;
+	
+	var pg=document.getElementById("prg");
+	pg.value=per;
+	
+	var p1=document.getElementById("p");
+	p1.innerHTML=per;
+}
+
+</script>
+</head>
+<body>
+<table>
+
+<tr>
+<th>Name:</th>
+<td><input type="text" id="t1" placeholder="Enter name"></td>
+</tr>
+
+<tr>
+<th>Reg No:</th>
+<td><input type="text" id="r1" ></td>
+</tr>
+
+<tr>
+<th>Tamil:</th>
+<td><input type="text" id="tamil" ></td>
+</tr>
+
+
+<tr>
+<th>English:</th>
+<td><input type="text" id="english" ></td>
+</tr>
+
+<tr>
+<th>Maths:</th>
+<td><input type="text" id="maths" ></td>
+</tr>
+
+<tr>
+<th>Science:</th>
+<td><input type="text" id="science" ></td>
+</tr>
+
+<tr>
+<th>Social Science:</th>
+<td><input type="text" id="social_science" ></td>
+</tr>
+
+<tr>
+<th>Total:</th>
+<td><input type="text" id="total" disabled ></td>
+</tr>
+
+<tr>
+<th>Average:</th>
+<td><input type="text" id="avg" disabled></td>
+</tr>
+
+<tr>
+<th>Result:</th>
+<td><input type="text" id="result" disabled></td>
+</tr>
+
+<tr>
+
+<td><input type="Button" value="Calculate" onclick="calculate()"></td>
+<td colspan="2"><input type="Button" value="Insert" onclick="ins_data()" ></td>
+
+</tr>
+<tr>
+<td><input type="Button" value="clear" onclick="clr()" ></td>
+<td><input type="Button" value="Pass %" onclick="pass()" ></td>
+<td colspan="2"><input type="Button" value="Fail %" onclick="fail()" ></td>
+</tr>
+</table>
+<br>
+<br>
+
+
+ <table align="top-right" border='1px' id="tab">
+ <tr>
+ <th>Name</th>
+ <th>Reg No</th>
+ <th>Tamil</th>
+ <th>English</th>
+ <th>Maths</th>
+ <th>Science</th>
+ <th>Social Science</th>
+ <th>Total</th>
+ <th>Average</th>
+ <th>Result</th>
+ 
+ </table>
+ 
+<br>
+<br>
+
+<progress id="prg" value="0" max="100" style="width:50%;height:100px"></progress>
+
+
+<p id="p" align="center" style="font-size:75px">0%</p>
+</body>
+</html>
